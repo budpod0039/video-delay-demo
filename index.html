@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delayed Video</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <video id="delayedVideo" loop muted playsinline preload="auto">
+    <source src="https://freight.cargo.site/m/V2321093596548441772534213744715/Sauvage-muted.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    const video = document.getElementById("delayedVideo");
+    video.load();
+    setTimeout(() => {
+      video.style.display = "block";
+      video.play().catch(err => console.error("Video play failed:", err));
+    }, 7000);
+  </script>
+
+</body>
+</html>
